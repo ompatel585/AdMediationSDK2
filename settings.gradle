@@ -47,5 +47,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "AdMediationSDK2"
-include(":app")
 include(":adsdk")
