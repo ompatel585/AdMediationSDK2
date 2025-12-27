@@ -1,0 +1,27 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+
+        // IronSource
+        maven { url "https://android-sdk.is.com/" }
+
+        // Unity Ads
+        maven { url "https://unityads.jfrog.io/artifactory/unityads-release" }
+
+        // Mintegral (MBridge)
+        maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" }
+    }
+}
+
+rootProject.name = "AdMediationSDK"
+include ':app'
+include ':adsdk'
