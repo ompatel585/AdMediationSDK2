@@ -41,21 +41,19 @@ android {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.20"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:1.7.20"
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.7.1'
-    implementation 'com.google.android.material:material:1.13.0'
+    compileOnly 'androidx.core:core-ktx:1.7.0'
+    compileOnly 'androidx.appcompat:appcompat:1.7.1'
+    compileOnly 'com.google.android.material:material:1.13.0'
 
-    implementation "com.google.android.gms:play-services-ads:22.3.0"
-    implementation "com.unity3d.ads:unity-ads:4.8.0"
-    implementation "com.ironsource.sdk:mediationsdk:7.6.0"
-    implementation "com.applovin:applovin-sdk:12.6.1"
-    implementation "com.mbridge.msdk.oversea:reward:16.7.71"
-    implementation "com.mbridge.msdk.oversea:interstitial:16.7.71"
-    implementation "com.mbridge.msdk.oversea:banner:16.7.71"
+    compileOnly "com.google.android.gms:play-services-ads:22.3.0"
+    compileOnly "com.unity3d.ads:unity-ads:4.8.0"
+    compileOnly "com.ironsource.sdk:mediationsdk:7.6.0"
+    compileOnly "com.applovin:applovin-sdk:12.6.1"
 
 }
+
 
 group = "com.github.yourcompany"
 version = "1.0.0"

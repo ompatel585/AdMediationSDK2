@@ -1,10 +1,11 @@
 pluginManagement {
     repositories {
+        google()                 // ✅ REQUIRED for Android Gradle Plugin
         gradlePluginPortal()
-        google()
         mavenCentral()
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
 
@@ -12,30 +13,39 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
 
-        // ✅ Mintegral - force correct repo ONLY
+        // 🚫 Unity Ads repo (must NOT serve Mintegral)
+        maven {
+            url "https://unityads.jfrog.io/artifactory/unityads-release"
+            content {
+                excludeGroup("com.mbridge.msdk.oversea")
+            }
+        }
+
+        // 🚫 IronSource repo
+        maven {
+            url "https://android-sdk.is.com/"
+            content {
+                excludeGroup("com.mbridge.msdk.oversea")
+            }
+        }
+
+        // ✅ Mintegral — isolated + POM bypass
         exclusiveContent {
             forRepository {
                 maven {
                     url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"
+                    metadataSources {
+                        artifact()
+                    }
                 }
             }
             filter {
                 includeGroup("com.mbridge.msdk.oversea")
             }
         }
-
-        // Unity Ads
-        maven {
-            url "https://unityads.jfrog.io/artifactory/unityads-release"
-        }
-
-        // IronSource
-        maven {
-            url "https://android-sdk.is.com/"
-        }
     }
 }
 
-rootProject.name = "AdMediationSDK"
-include ':app'
-include ':adsdk'
+rootProject.name = "AdMediationSDK2"
+include(":app")
+include(":adsdk")
