@@ -7,18 +7,32 @@ pluginManagement {
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+
     repositories {
         google()
         mavenCentral()
 
-        // IronSource
-        maven { url "https://android-sdk.is.com/" }
+        // ✅ Mintegral - force correct repo ONLY
+        exclusiveContent {
+            forRepository {
+                maven {
+                    url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"
+                }
+            }
+            filter {
+                includeGroup("com.mbridge.msdk.oversea")
+            }
+        }
 
         // Unity Ads
-        maven { url "https://unityads.jfrog.io/artifactory/unityads-release" }
+        maven {
+            url "https://unityads.jfrog.io/artifactory/unityads-release"
+        }
 
-        // Mintegral (MBridge)
-        maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" }
+        // IronSource
+        maven {
+            url "https://android-sdk.is.com/"
+        }
     }
 }
 
